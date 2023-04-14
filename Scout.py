@@ -88,13 +88,7 @@ def userrecon():
         if userrecon_num == len(socialMediaLinks):
             break
     print()
-    # Search snapchat
-    if (search_snap(username)):
-        userrecon_num += 1
-        url = "https://snapchat.com/add/" + username
-        userrecon_results.append(
-            f"  {space}{b}[{g}200{b}] {userrecon_num}/72 {w}{url.format(url)}")
-
+   
     for user in userrecon_results:
         if "200" in user:
             print(user)
@@ -138,13 +132,13 @@ def send_req(url, username):
         color = r
     else:
         color = y
-    display_progress(userrecon_num, 72, f"Users found: {userrecon_working}")
+    display_progress(userrecon_num, len(socialMediaLinks), f"Users found: {userrecon_working}")
     url = url.format(username)
     userrecon_results.append(
-        f"  {space}{b}[{color}{req.status_code}{b}] {userrecon_num}/71 {w}{url.format(username)}")
+        f"  {space}{b}[{color}{req.status_code}{b}] {userrecon_num}/{len(socialMediaLinks)} {w}{url.format(username)}")
 
 
-socialMediaLinks = ["https://facebook.com/{}","https://instagram.com/{}","https://twitter.com/{}","https://youtube.com/{}","https://vimeo.com/{}","https://github.com/{}","https://plus.google.com/{}","https://pinterest.com/{}","https://flickr.com/people/{}","https://vk.com/{}","https://about.me/{}","https://disqus.com/{}","https://bitbucket.org/{}","https://flipboard.com/@{}","https://medium.com/@{}","https://hackerone.com/{}","https://keybase.io/{}","https://buzzfeed.com/{}","https://slideshare.net/{}","https://mixcloud.com/{}","https://soundcloud.com/{}","https://badoo.com/en/{}","https://imgur.com/user/{}","https://open.spotify.com/user/{}","https://pastebin.com/u/{}","https://wattpad.com/user/{}","https://canva.com/{}","https://codecademy.com/{}","https://last.fm/user/{}","https://blip.fm/{}","https://dribbble.com/{}","https://en.gravatar.com/{}","https://foursquare.com/{}","https://creativemarket.com/{}","https://ello.co/{}","https://cash.me/{}","https://angel.co/{}","https://500px.com/{}","https://houzz.com/user/{}","https://tripadvisor.com/members/{}","https://kongregate.com/accounts/{}","https://{}.blogspot.com/","https://{}.tumblr.com/","https://{}.wordpress.com/","https://{}.devianart.com/","https://{}.slack.com/","https://{}.livejournal.com/","https://{}.newgrounds.com/","https://{}.hubpages.com","https://{}.contently.com","https://steamcommunity.com/id/{}","https://www.wikipedia.org/wiki/User:{}","https://www.freelancer.com/u/{}","https://www.dailymotion.com/{}","https://www.etsy.com/shop/{}","https://www.scribd.com/{}","https://www.patreon.com/{}","https://www.behance.net/{}","https://www.goodreads.com/{}","https://www.gumroad.com/{}","https://www.instructables.com/member/{}","https://www.codementor.io/{}","https://www.reverbnation.com/{}","https://www.designspiration.net/{}","https://www.bandcamp.com/{}","https://www.colourlovers.com/love/{}","https://www.ifttt.com/p/{}","https://www.trakt.tv/users/{}","https://www.okcupid.com/profile/{}","https://www.trip.skyscanner.com/user/{}","http://www.zone-h.org/archive/notifier={}"]
+socialMediaLinks = ["https://facebook.com/{}" ,"https://www.snapchat.com/add/{}","https://tiktok.com/@{}","https://instagram.com/{}","https://twitter.com/{}","https://youtube.com/{}","https://vimeo.com/{}","https://github.com/{}","https://plus.google.com/{}","https://pinterest.com/{}","https://flickr.com/people/{}","https://vk.com/{}","https://about.me/{}","https://disqus.com/{}","https://bitbucket.org/{}","https://flipboard.com/@{}","https://medium.com/@{}","https://hackerone.com/{}","https://keybase.io/{}","https://buzzfeed.com/{}","https://slideshare.net/{}","https://mixcloud.com/{}","https://soundcloud.com/{}","https://badoo.com/en/{}","https://imgur.com/user/{}","https://open.spotify.com/user/{}","https://pastebin.com/u/{}","https://wattpad.com/user/{}","https://canva.com/{}","https://codecademy.com/{}","https://last.fm/user/{}","https://blip.fm/{}","https://dribbble.com/{}","https://en.gravatar.com/{}","https://foursquare.com/{}","https://creativemarket.com/{}","https://ello.co/{}","https://cash.me/{}","https://angel.co/{}","https://500px.com/{}","https://houzz.com/user/{}","https://tripadvisor.com/members/{}","https://kongregate.com/accounts/{}","https://{}.blogspot.com/","https://{}.tumblr.com/","https://{}.wordpress.com/","https://{}.devianart.com/","https://{}.slack.com/","https://{}.livejournal.com/","https://{}.newgrounds.com/","https://{}.hubpages.com","https://{}.contently.com","https://steamcommunity.com/id/{}","https://www.wikipedia.org/wiki/User:{}","https://www.freelancer.com/u/{}","https://www.dailymotion.com/{}","https://www.etsy.com/shop/{}","https://www.scribd.com/{}","https://www.patreon.com/{}","https://www.behance.net/{}","https://www.goodreads.com/{}","https://www.gumroad.com/{}","https://www.instructables.com/member/{}","https://www.codementor.io/{}","https://www.reverbnation.com/{}","https://www.designspiration.net/{}","https://www.bandcamp.com/{}","https://www.colourlovers.com/love/{}","https://www.ifttt.com/p/{}","https://www.trakt.tv/users/{}","https://www.okcupid.com/profile/{}","https://www.trip.skyscanner.com/user/{}","http://www.zone-h.org/archive/notifier={}"]
 
 
 def iplocation():
@@ -196,22 +190,6 @@ def infoga(opt):
     req = requests.get(apihack.format(opt, x), stream=True)
     for res in req.iter_lines():
         print(f"{space}{b}-{w} {res.decode('utf-8')}")
-
-
-
-
-
-def search_snap(username):
-    url = "https://accounts.snapchat.com:443/accounts/get_username_suggestions"
-    headers = {"Sec-Ch-Ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\"", "Sec-Ch-Ua-Mobile": "?0", "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36", "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
-           "Accept": "*/*", "Origin": "https://accounts.snapchat.com", "Sec-Fetch-Site": "same-origin", "Sec-Fetch-Mode": "same-origin", "Sec-Fetch-Dest": "empty", "Referer": "https://accounts.snapchat.com/", "Accept-Encoding": "gzip, deflate", "Accept-Language": "en-US,en;q=0.9", "Connection": "close"}
-    xsrf_token = "JxVkpuY3VbHfOFagfT0csQ"
-    cookies = {"xsrf_token": xsrf_token}
-    data = {"requested_username": username,
-            "xsrf_token": xsrf_token}
-    res = requests.post(url, headers=headers,
-                        cookies=cookies, data=data)
-    return True if "OK" in res.text else False
 
 
 if __name__ == '__main__':
