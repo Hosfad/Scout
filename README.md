@@ -19,7 +19,7 @@
 - Ip adrees information lookup
 - DNS records lookup
 - Reverse DNS lookup
-- (Coming soon) 
+- (Coming soon) Email lookup/Validation,Phone lookup,Social media scrappers and much more
 
 
 ## Running the tool
